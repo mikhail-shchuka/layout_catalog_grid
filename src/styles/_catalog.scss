@@ -1,7 +1,15 @@
 .catalog {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  
+  @each $var, $num in $screen {
+    @media (min-width: #{$var}) {
+      grid-template-columns: repeat(#{$num}, 200px);
+    }
+  }
 
+  justify-content: center;
+  gap: 48px;
   max-width: 944px;
   margin: 0 auto;
 
